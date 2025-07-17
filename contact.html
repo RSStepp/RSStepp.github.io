@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jenkins Portfolio</title>
+	<link href="styles/default.css" rel="stylesheet" type="text/css" 
+  </head>
+  <body>
+  <!-- navigator -->
+     <div class="nav">
+		<p class= "name"> Simon <br> Jenkins </p>
+		<p class= "desc">engineer-illustrator-musician</p>
+        <a href="index.html">introduction</a>
+        <a href="documents.html">documents</a>
+        <a href="employments.html">employments</a>
+        <a href="contact.html">contact</a>
+
+		<a href="https://www.instagram.com/sjenks47/" style="font-size: 15px;margin-top: 5px;">instagram</a>
+    </div>
+	
+	<div class="main">
+		<center>
+			
+			<form class="validity" method="post" action="/">
+				<div class="form-group">
+					<label for="name">Name</label></br>
+					<input id="name" name="name" class="your-field" type="text" required
+						data-missing="This field is required"
+					>
+				</div>
+			
+				<div class="form-group">
+					<label for="email">E-mail</label></br>
+					<input id="email" name="email" class="your-field" type="text" required
+						data-missing="This field is required"
+					>
+				</div>
+			
+				<div class="form-group">
+					<label for="phone">Phone (999-999-9999)</label></br>
+					<input id="phone" name="phone" class="your-field" pattern="\d{3}[\-]\d{3}[\-]\d{4}" type="tel" required
+						data-mismatch="Please match the requested format: 999-999-9999"
+					>
+				</div>
+		
+				<button class="submit-btn" type="submit">Submit</button>
+			</form>
+		<!-- Jquery plugin source is https://www.jqueryscript.net/form/Form-Validation-Plugin-jQuery-Validity.html and utilizes bootstrap-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="js/jquery.validity.js"></script>
+		<script src="js/script.js"></script>
+		</center>
+		
+		
+	</div>
+  </body>
+  <footer>
+  <p>website created by Ryan Stepp</p>
+  </footer>
+</html>

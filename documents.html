@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jenkins Portfolio</title>
+  <link href="styles/default.css" rel="stylesheet" type="text/css" >
+  <style>
+    /* Add top padding to content area (non-nav) */
+    .check {
+      padding-top: 40px; /* Adjust this value as needed */
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <div class="nav">
+    <p class="name">Simon<br>Jenkins</p>
+    <p class="desc">Engineer · Illustrator · Musician</p>
+    <a href="index.html">Introduction</a>
+    <a href="documents.html"><u>Resume</u></a>
+    <a href="https://www.instagram.com/sjenks47/" style="font-size: 15px; margin-top: 5px;">Instagram</a>
+  </div>
+
+  <!-- Content -->
+  <div class="check"> 
+    <!-- Document Carousel -->
+    <div class="card-carousel">
+      <div class="my-card"><img src="images/page1.jpg" alt="simon" style="width:543px;height:768px;" class="center"></div>
+      <div class="my-card"><img src="images/page2.jpg" alt="simon" style="width:543px;height:768px;" class="center"></div>
+      <div class="my-card"><img src="images/page3.jpg" alt="simon" style="width:543px;height:768px;" class="center"></div>
+    </div>
+  </div>
+
+  
+  <!-- jQuery & Carousel Script -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script> 
+  <script>
+    const $cards = $('.my-card');
+    const num = $cards.length;
+    const even = num / 2;
+    const odd = (num + 1) / 2;
+
+    if (num % 2 === 0) {
+      $cards.eq(even - 1).addClass('active');
+      $cards.eq(even - 1).prev().addClass('prev');
+      $cards.eq(even - 1).next().addClass('next');
+    } else {
+      $cards.eq(odd - 1).addClass('active');
+      $cards.eq(odd - 1).prev().addClass('prev');
+      $cards.eq(odd - 1).next().addClass('next');
+    }
+
+    $cards.click(function() {
+      const slideWidth = $('.active').width();
+
+      if ($(this).hasClass('next')) {
+        $('.card-carousel').stop(false, true).animate({left: '-=' + slideWidth});
+      } else if ($(this).hasClass('prev')) {
+        $('.card-carousel').stop(false, true).animate({left: '+=' + slideWidth});
+      }
+
+      $(this).removeClass('prev next');
+      $(this).siblings().removeClass('prev active next');
+
+      $(this).addClass('active');
+      $(this).prev().addClass('prev');
+      $(this).next().addClass('next');
+    });
+
+    // Keyboard navigation
+    $(document).keydown(function(e) {
+      if (e.keyCode === 37) { // left arrow
+        $('.active').prev().trigger('click');
+      } else if (e.keyCode === 39) { // right arrow
+        $('.active').next().trigger('click');
+      }
+    });
+  </script>
+</body>
+</html>
